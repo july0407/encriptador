@@ -1,0 +1,322 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  
+}
+
+
+body, html {
+  height: 100%;
+}
+
+.Logo {
+  padding-top: 10px;
+  margin-left: 10px;
+  width: 10px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 40px); /* Restar altura del pie de página */
+  background: #2c5568;
+}
+
+/* Pie de página */
+.footer {
+  width: 100%;
+  height: 40px; /* Altura del pie de página */
+  background-color: #0a3871;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000; /* Asegura que el pie de página esté siempre en frente */
+}
+
+.pie {
+    display: block;
+    font-size: 0.67em;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}    
+
+.texto {
+  position: absolute;
+  width: 42%;
+  height: 60%;
+  left: 12%;
+  top: 15%;
+  border: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 150%;
+  background-color: #2c5568;;
+  text-transform: lowercase;  /*transforma el texto a minuscula*/
+  color: #d0ddee;
+   
+}
+
+.texto::placeholder {
+  color: #0a3871;
+}
+
+.texto:focus,
+.texto:active {
+  border: none;
+  outline: none;
+}
+
+.terminos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+  position: absolute;
+  width: 80%;
+  left: 12%;
+  top: 80%;
+}
+
+.terminos p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #495057;
+  opacity: 70%;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin-bottom: 1rem;
+}
+
+.botones {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 1% 0;
+  position: absolute;
+  width: 80%;
+  left: 12%;
+  top: 82%;
+}
+
+.btn-encriptar {
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  gap: 8px;
+  width: 25%;
+  background-color: #0a3871;
+  border-radius: 24px;
+  font-family: "Inter";
+  font-size: 18px;
+  line-height: 19px;
+  text-align: center;
+  color: #fff;
+  margin-right: 8px; /* Agrega un espacio a la derecha */
+}
+
+.btn-desencriptar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2%;
+  gap: 8px;
+  width: 25%;
+  background: #d8dfe8;
+  border: 1px solid #0a3871;
+  border-radius: 24px;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 19px;
+  text-align: center;
+  color: #0a3871;
+  margin-right: 8px; /* Agrega un espacio a la derecha */
+}
+
+.btn-desencriptar:hover,
+.btn-encriptar:hover {
+  margin: 0.3%;
+  width: 24.5%;
+  padding: 1.8%;
+}
+
+/* Ajustes para el contenedor encriptado */
+.encriptado {
+  display: flex;
+  flex-direction: column; /* Colocar los elementos en columna */
+  align-items: center;
+  justify-content: flex-start; /* Alinea los elementos al inicio */
+  position: absolute;
+  width: 33%;
+  height: 90%;
+  left: 55%;
+  top: 5%;
+  background: #fbfbfc;
+  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+  border-radius: 32px;
+  text-transform: lowercase;   
+  padding: 10px; /* Añadir padding para evitar que los elementos toquen los bordes */
+}
+
+.encriptado img {
+  max-width: 80%; /* Asegúrate de que la imagen no se salga del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: block; /* Asegúrate de que la imagen sea un elemento de bloque */
+  margin-bottom: 20px; /* Espacio entre la imagen y el texto */  
+}
+
+/* Ajustes para el mensaje encriptado */
+.mensaje-encriptado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+  gap: 16px;
+  width: 100%;
+  text-align: center;
+  overflow: auto; /* Permite el desplazamiento si el contenido es demasiado grande */
+  word-wrap: break-word; /* Asegura que el texto se ajuste dentro del contenedor */
+  flex: 1; /* Para que ocupe todo el espacio disponible cuando la imagen está oculta */  
+}
+
+.mensaje-encriptado h2, .mensaje-encriptado p {
+  width: 80%; /* Ajusta según sea necesario */
+  font-family: "Inter";
+  font-style: normal;
+  line-height: 120%;
+  text-align: center;
+  overflow: auto; /* Permite el desplazamiento si el contenido es demasiado grande */
+  white-space: normal; /* Permite que el texto se ajuste en múltiples líneas */
+}
+
+/* Botón de copiar */
+#btn-copiar {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  gap: 8px;
+  width:250px;
+  height: 55px;
+  background-color: #0a3871;
+  border-radius: 24px;
+  font-family: "Inter";
+  font-size: 18px;
+  line-height: 19px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bolder;
+  margin-top: 20px; /* Espacio entre el texto y el botón de copiar */
+    
+}
+
+#btn-copiar:hover {
+  background-color: #0a3871;
+  opacity: 0.8;
+}
+
+
+
+
+
+/* Responsive design for mobile */
+@media screen and (max-width: 768px) {
+  .texto {
+    height: 100px;
+  }
+
+  .botones {
+    flex-direction: row; /* Cambiar a fila para los botones */
+    justify-content: space-between; /* Asegura que estén uno al lado del otro */
+  }
+
+  .btn-encriptar,
+  .btn-desencriptar {
+    margin: 5px; /* Espacio entre los botones */
+    width: 48%; /* Asegurar que ocupen el 48% del contenedor cada uno */
+  }
+}
+
+/* Responsive design for larger screens */
+@media (max-width: 57.5em) {
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+  .encriptar {
+    width: 100%;
+  }
+  .texto {
+    width: 80%;
+    height: 35%;
+    left: 10%;
+    top: 5%;
+  }
+  .terminos {
+    width: 80%;
+    left: 10%;
+    top: 42%;
+  }
+  .terminos p {
+    font-size: 16px;
+  }
+  .botones {
+    width: 80%;
+    left: 10%;
+    top: 45%;
+  }
+  .btn-encriptar,
+  .btn-desencriptar {
+    width: 48%;
+    border-radius: 16px;
+  }
+  .btn-encriptar:hover,
+  .btn-desencriptar:hover {
+    margin: 0.3%;
+    width: 47.5%;
+    padding: 1.8%;
+  }
+  .encriptado {
+    width: 90%;
+    height: 40%;
+    left: 4%;
+    top:56%;
+  }
+  .mensaje-encriptado {
+    width: 100%;
+    top: 5%;
+  }
+  .encriptado img {
+    top: 0;
+    display: none;
+    visibility: hidden;
+  }
+  #btn-copiar {
+    margin: 0.3%;
+    width: 47.5%;
+    padding: 1.8%;
+    margin-bottom: 10px; /* Asegura espacio entre el botón y el pie de página */
+}
